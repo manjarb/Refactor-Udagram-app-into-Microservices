@@ -1,0 +1,23 @@
+{
+  "name": "refactor-udagram-app-into-microservices",
+  "version": "1.0.0",
+  "description": "Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "apply:deployment": "kubectl apply -f udacity-c3-deployment/k8s/backend-feed-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/backend-user-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/frontend-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-deployment.yaml",
+    "get:pods": "kubectl get pods",
+    "describe:pods": "kubectl describe pods",
+    "delete:deployment": "kubectl delete --all deployment --force --grace-period=0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manjarb/Refactor-Udagram-app-into-Microservices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manjarb/Refactor-Udagram-app-into-Microservices/issues"
+  },
+  "homepage": "https://github.com/manjarb/Refactor-Udagram-app-into-Microservices#readme"
+}

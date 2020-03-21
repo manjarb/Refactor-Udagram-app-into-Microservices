@@ -5,7 +5,7 @@ metadata:
     service: frontend
   name: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: frontend
@@ -24,8 +24,8 @@ spec:
           resources:
             requests:
               memory: "64Mi"
-              cpu: "250m"
+              cpu: "125m"
             limits:
               memory: "1024Mi"
-              cpu: "500m"
+              cpu: "250m"
       restartPolicy: Always
