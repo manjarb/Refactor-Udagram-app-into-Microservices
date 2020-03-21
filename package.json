@@ -8,7 +8,8 @@
     "apply:deployment": "kubectl apply -f udacity-c3-deployment/k8s/backend-feed-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/backend-user-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/frontend-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-deployment.yaml",
     "get:pods": "kubectl get pods -o wide",
     "describe:pods": "kubectl describe pods",
-    "delete:deployment": "kubectl delete --all deployment --force --grace-period=0"
+    "delete:deployment": "kubectl delete --all deployment --force --grace-period=0",
+    "log:pod": "kubectl logs -p pod-name"
   },
   "repository": {
     "type": "git",
