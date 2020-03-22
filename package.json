@@ -7,11 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "apply:deployment": "kubectl apply -f udacity-c3-deployment/k8s/backend-feed-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/backend-user-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/frontend-deployment.yaml && kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-deployment.yaml",
     "apply:service": "kubectl apply -f udacity-c3-deployment/k8s/backend-feed-service.yaml && kubectl apply -f udacity-c3-deployment/k8s/backend-user-service.yaml && kubectl apply -f udacity-c3-deployment/k8s/frontend-service.yaml && kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-service.yaml",
-    "apply:env": "kubectl apply -f udacity-c3-deployment/k8s/aws-secret.yaml && kubectl apply -f udacity-c3-deployment/k8s/env-configmap.yaml && && kubectl apply -f udacity-c3-deployment/k8s/env-secret.yaml",
+    "apply:env": "kubectl apply -f udacity-c3-deployment/k8s/aws-secret.yaml && kubectl apply -f udacity-c3-deployment/k8s/env-configmap.yaml && kubectl apply -f udacity-c3-deployment/k8s/env-secret.yaml",
     "get:pods": "kubectl get pods -o wide",
+    "get:services": "kubectl get service",
     "describe:pods": "kubectl describe pods",
     "delete:deployment": "kubectl delete --all deployment --force --grace-period=0",
-    "log:pod": "kubectl logs -p pod-name"
+    "delete:service": "kubectl delete --all service --force --grace-period=0",
+    "log:pod": "kubectl logs -p pod-name",
+    "forward:port": "concurrently \"kubectl port-forward service/reverseproxy 8080:8080\" \"kubectl port-forward service/frontend 8100:8100\"",
+    "apply:all": "npm-run-all apply:*",
+    "delete:all": "npm-run-all delete:*"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/manjarb/Refactor-Udagram-app-into-Microservices/issues"
   },
-  "homepage": "https://github.com/manjarb/Refactor-Udagram-app-into-Microservices#readme"
+  "homepage": "https://github.com/manjarb/Refactor-Udagram-app-into-Microservices#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }
